@@ -5,7 +5,6 @@
 class FCGI {};
 
 extern "C" void fcgiLoop(FCGI *fcgi, runtime::Callable<void> callable) {
-    callable.retain();
     while(FCGI_Accept() >= 0)
         callable();
 }
